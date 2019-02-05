@@ -1,0 +1,26 @@
+PWD=$( pwd )
+PACKAGE_LOG="/var/log/messages"
+PACKAGE_NAME=${PACKAGE_NAME:-nginx}
+
+PACKAGE_UPLOAD_LINK="http://nginx.org/download/nginx-1.14.2.tar.gz"
+PACKAGE_ARCHIVE_FILE=$( expr match "${PACKAGE_UPLOAD_LINK}" '.*\/\(.*\.gz\)'  )
+PACKAGE_APP_DIR=$( expr match "${PACKAGE_ARCHIVE_FILE}" '\(.*\)\.tar\.gz'  )
+PACKAGE_VERSION=$( expr match "${PACKAGE_APP_DIR}" '^.*-\(.*\)'  )
+
+OPENSSL_UPLOAD_LINK="https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
+OPENSSL_ARCHIVE_FILE=$( expr match "${OPENSSL_UPLOAD_LINK}" '.*\/\(.*\.gz\)'  )
+OPENSSL_APP_DIR=$( expr match "${OPENSSL_ARCHIVE_FILE}" '\(.*\)\.tar\.gz'  )
+
+UP_CHECK_MODULE_LINK="http://github.com/yaoweibin/nginx_upstream_check_module"
+ADV_STATUS_MODULE_LINK="https://github.com/vozlt/nginx-module-vts"
+
+PACKAGE_TYPE=${PACKAGE_TYPE:-deb}
+PACKAGE_RELEASE=${PACKAGE_RELEASE:-$( date "+%Y%m%d%H%M%S" )}
+#PACKAGE_INFO=${PACKAGE_INFO:-_httpv2}
+PACKAGE_DESCRIPTION=${PACKAGE_DESCRIPTION:-A high performance web server and reverse proxy server. Rebuilt with HTTPv2 support and additional monitoring features}
+PACKAGE_MAINTAINER=${PACKAGE_MAINTAINER:-Organisation admins}
+
+ORGANIZATION=${ORGANIZATION:-Organisation}
+PRODUCT=${PRODUCT:-Nginx}
+REPO_NAME=${REPO_NAME:-Organisation-nginx}
+ARCH=${ARCH:-`uname -i`}
