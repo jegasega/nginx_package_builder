@@ -81,7 +81,7 @@ fi
 run_command "cd $UPLOAD_DIR"
 run_command "wget $PACKAGE_UPLOAD_LINK"
 run_command "wget $OPENSSL_UPLOAD_LINK"
-run_command "git clone $UP_CHECK_MODULE_LINK"
+#run_command "git clone $UP_CHECK_MODULE_LINK"
 run_command "git clone $ADV_STATUS_MODULE_LINK"
 run_command "tar -zxvf $PACKAGE_ARCHIVE_FILE"
 run_command "tar -zxvf $OPENSSL_ARCHIVE_FILE"
